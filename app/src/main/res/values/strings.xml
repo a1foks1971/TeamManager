@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TeamMan</string>
+    <string name="button_team">Команда</string>
+    <string name="hint_name">Ім’я співробітника</string>
+    <string name="hint_position">Посада</string>
+    <string name="button_add">Додати</string>
+    <string name="welcome_text">Ласкаво просимо до додатку обліку персоналу</string>
+</resources>
