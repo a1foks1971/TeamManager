@@ -1,11 +1,14 @@
-package com.example.teamman;
+package com.example.teamman.db;
 
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Employee.class}, version = 1)
+import com.example.teamman.db.employee.Employee;
+import com.example.teamman.db.employee.EmployeeDao;
+
+@Database(entities = {Employee.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 

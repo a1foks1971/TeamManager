@@ -1,4 +1,4 @@
-package com.example.teamman;
+package com.example.teamman.web;
 
 import android.util.Log;
 

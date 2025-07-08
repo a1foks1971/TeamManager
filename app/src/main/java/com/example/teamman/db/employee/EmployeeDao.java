@@ -1,4 +1,4 @@
-package com.example.teamman;
+package com.example.teamman.db.employee;
 
 import androidx.room.Dao;
 import androidx.room.Insert;

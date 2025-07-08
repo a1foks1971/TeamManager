@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.teamman.db.AppDatabase;
+import com.example.teamman.web.EmbeddedWebServer;
+
 public class MainActivity extends AppCompatActivity {
     private EmbeddedWebServer webServer;
 

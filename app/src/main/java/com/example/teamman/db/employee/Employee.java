@@ -1,4 +1,4 @@
-package com.example.teamman;
+package com.example.teamman.db.employee;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

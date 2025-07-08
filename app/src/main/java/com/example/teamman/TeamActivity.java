@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.example.teamman.db.AppDatabase;
+import com.example.teamman.db.employee.Employee;
+import com.example.teamman.ui.common.adapters.EmployeeAdapter;
 
 public class TeamActivity extends AppCompatActivity {
     private EditText editName, editPosition;

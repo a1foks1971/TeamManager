@@ -1,4 +1,4 @@
-package com.example.teamman.db.employee;
+package com.example.teamman.ui.common.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamman.R;
+import com.example.teamman.db.employee.Employee;
 
 import java.util.List;
 
