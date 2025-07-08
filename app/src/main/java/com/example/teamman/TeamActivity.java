@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamman.db.AppDatabase;
-import com.example.teamman.db.employee.Employee;
-import com.example.teamman.ui.common.adapters.EmployeeAdapter;
+import com.example.teamman.db.person.PersonConst;
+import com.example.teamman.ui.common.adapters.PersonAdapter;
 
 public class TeamActivity extends AppCompatActivity {
     private EditText editName, editPosition;
     private RecyclerView recyclerView;
-    private EmployeeAdapter adapter;
+    private PersonAdapter adapter;
     private AppDatabase db;
     private Button buttonAdd;
 
@@ -31,7 +31,7 @@ public class TeamActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(this);
 
-        adapter = new EmployeeAdapter(db.employeeDao().getAll());
+        adapter = new PersonAdapter(db.personConstDao().getAll());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -41,8 +41,13 @@ public class TeamActivity extends AppCompatActivity {
                 String name = editName.getText().toString().trim();
                 String position = editPosition.getText().toString().trim();
                 if (!name.isEmpty() && !position.isEmpty()) {
-                    db.employeeDao().insert(new Employee(name, position));
-                    adapter.updateList(db.employeeDao().getAll());
+                    db.personConstDao().insert(
+                        new PersonConst.Builder()
+                        .lastName(name)
+                        .firstName(position)
+                        .build()
+                    );
+                    adapter.updateList(db.personConstDao().getAll());
                     editName.setText("");
                     editPosition.setText("");
                 }

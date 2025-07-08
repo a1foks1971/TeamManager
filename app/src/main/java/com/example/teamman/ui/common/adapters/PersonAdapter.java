@@ -7,15 +7,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamman.R;
-import com.example.teamman.db.employee.Employee;
+import com.example.teamman.db.person.PersonConst;
 
 import java.util.List;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
-    private List<Employee> employees;
+public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
+    private List<PersonConst> people;
 
-    public EmployeeAdapter(List<Employee> employees) {
-        this.employees = employees;
+    public PersonAdapter(List<PersonConst> people) {
+        this.people = people;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -30,25 +30,25 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     }
 
     @Override
-    public EmployeeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PersonAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_employee, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Employee emp = employees.get(position);
-        holder.nameText.setText(emp.name);
-        holder.positionText.setText(emp.position);
+        PersonConst emp = people.get(position);
+        holder.nameText.setText(emp.lastName);
+        holder.positionText.setText(emp.firstName);
     }
 
     @Override
     public int getItemCount() {
-        return employees.size();
+        return people.size();
     }
 
-    public void updateList(List<Employee> newList) {
-        employees = newList;
+    public void updateList(List<PersonConst> newList) {
+        people = newList;
         notifyDataSetChanged();
     }
 }
