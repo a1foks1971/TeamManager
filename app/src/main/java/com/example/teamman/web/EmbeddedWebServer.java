@@ -52,6 +52,24 @@ public class EmbeddedWebServer extends NanoHTTPD {
             return newFixedLengthResponse(Response.Status.REDIRECT, "text/html", "<meta http-equiv='refresh' content='0;url=/' />");
         }
 
+        if (Method.GET.equals(method) && uri.startsWith("/assets/img/")) {
+            String fileName = uri.substring("/assets/img/".length());
+            InputStream is = getClass().getClassLoader().getResourceAsStream("assets/img/" + fileName);
+            if (is == null) {
+                return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "Icon not found");
+            }
+            return newChunkedResponse(Response.Status.OK, "image/svg+xml", is);
+        }
+
+        if (Method.GET.equals(method) && uri.startsWith("/assets/js/")) {
+            String fileName = uri.substring("/assets/js/".length());
+            InputStream is = getClass().getClassLoader().getResourceAsStream("assets/js/" + fileName);
+            if (is == null) {
+                return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "JS file not found");
+            }
+            return newChunkedResponse(Response.Status.OK, "application/javascript", is);
+        }
+
 //        if (Method.GET.equals(method) && "/".equals(uri)) {
 //            List<Employee> employees = db.employeeDao().getAll();
 //            StringBuilder html = new StringBuilder();

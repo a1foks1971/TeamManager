@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Особовий склад</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeamMan</title>
+    <style>
+        header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px;
+          background: #eee;
+        }
+        header > * {
+          user-select: none;
+        }
+        main {
+          padding: 10px;
+        }
+        button {
+          cursor: pointer;
+        }
+    </style>
 </head>
-<body>
-<h1>Особовий склад</h1>
-<ul id="personConst-list">
-    <!-- {{employees}} -->
-</ul>
+<body data-page="home">
 
-<h2>Додати</h2>
-<form method="post" action="/add">
-    Ім'я: <input name="name"><br>
-    Посада: <input name="position"><br>
-    <button type="submit">Додати</button>
-</form>
+<header>
+    <button disabled id="btn-back">
+        <img src="assets/img/arrow-left.svg" style="width:16px; height:16px;" />
+    </button>
+
+    <button disabled id="btn-home">
+        <img src="assets/img/home.svg" style="width:16px; height:16px;" />
+    </button>
+
+    <h3 id="page-title" style="margin-left: 10px;">TeamMan</h3>
+
+    <select id="lang-switcher" style="margin-left: auto;">
+        <option value="uk" selected>Укр</option>
+        <option value="us">Eng</option>
+    </select>
+</header>
+
+<main>
+    <button id="settings-btn">Налаштування</button>
+    <button id="next-btn">Далі</button>
+</main>
+
+<script src="assets/js/strings.js"></script>
+<script src="assets/js/lang.js"></script>
 </body>
 </html>
+
+
