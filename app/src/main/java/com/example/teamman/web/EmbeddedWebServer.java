@@ -86,15 +86,15 @@ public class EmbeddedWebServer extends NanoHTTPD {
             return newFixedLengthResponse(Response.Status.OK, "text/html", finalHtml);
         }
 
-//        if (Method.GET.equals(method) && uri.endsWith(".html")) {
-//            String path = "assets" + uri;
-//            InputStream is = getClass().getClassLoader().getResourceAsStream(path);
-//            if (is == null) {
-//                return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "HTML page not found: " + uri);
-//            }
-//            return newChunkedResponse(Response.Status.OK, "text/html", is);
-//        }
-//
+        if (Method.GET.equals(method) && uri.endsWith(".html")) {
+            String path = "assets" + uri;
+            InputStream is = getClass().getClassLoader().getResourceAsStream(path);
+            if (is == null) {
+                return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "HTML page not found: " + uri);
+            }
+            return newChunkedResponse(Response.Status.OK, "text/html", is);
+        }
+
         return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "Not found");
     }
 

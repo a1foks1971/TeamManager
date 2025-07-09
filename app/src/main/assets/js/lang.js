@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('[data-page="home"] #btn-next').textContent     = strings.home.next[lang];
         break;
       case 'settings':
-        document.getElementById('page-title').textContent = strings.settings.settings[lang];
-        document.getElementById('db-btn').textContent      = strings.settings.database[lang];
-        document.getElementById('users-btn').textContent   = strings.settings.users[lang];
+        document.querySelector('[data-page="settings"] #page-title').textContent = strings.settings.settings[lang];
+        document.querySelector('[data-page="settings"] #btn-db').textContent      = strings.settings.database[lang];
+        document.querySelector('[data-page="settings"] #btn-users').textContent   = strings.settings.users[lang];
         break;
     }
   }
