@@ -32,18 +32,18 @@ public class EmbeddedWebServer extends NanoHTTPD {
 
         Log.i("WebServer", "Request: " + method + " " + uri);
 
-        if (Method.GET.equals(method)) {
-            if (uri.isEmpty()) uri = "index.html";      // корень
-
-            InputStream is = getClass()
-                    .getClassLoader()
-                    .getResourceAsStream("assets/" + uri);
-
-            if (is != null) {
-                String mime = detectMimeType(uri);
-                return newChunkedResponse(Response.Status.OK, mime, is);
-            }
-        }
+//        if (Method.GET.equals(method)) {
+//            if (uri.isEmpty()) uri = "index.html";      // корень
+//
+//            InputStream is = getClass()
+//                    .getClassLoader()
+//                    .getResourceAsStream("assets/" + uri);
+//
+//            if (is != null) {
+//                String mime = detectMimeType(uri);
+//                return newChunkedResponse(Response.Status.OK, mime, is);
+//            }
+//        }
 
 
         // === 1. Обработка POST-запроса (пример: добавление записи) ===
