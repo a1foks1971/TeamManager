@@ -22,7 +22,6 @@ public class PersonDetails {
     public int personId;      // внешний ключ на PersonConst.id
     public String callsign;   // позывной
 
-    public String bloodType;
     public String militaryRank;
     public String notes;
 

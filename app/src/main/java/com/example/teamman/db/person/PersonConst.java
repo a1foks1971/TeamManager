@@ -14,6 +14,7 @@ public class PersonConst {
     public String birthDate;
     public String citizenship;
     public String placeOfBirth;
+    public String bloodType;
 
     public PersonConst() {} // пустой конструктор нужен Room
 
@@ -25,6 +26,7 @@ public class PersonConst {
         private String birthDate = "2000-01-01";
         private String citizenship = "Ukraine"; //TODO
         private String placeOfBirth = "Ukraine"; //TODO
+        private String bloodType = "O(1)";
 
         public Builder lastName(String lastName) {
             this.lastName = lastName;
@@ -60,6 +62,10 @@ public class PersonConst {
             this.placeOfBirth = placeOfBirth;
             return this;
         }
+        public Builder bloodType(String bloodType) {
+            this.bloodType = bloodType;
+            return this;
+        }
 
         public PersonConst build() {
             PersonConst e = new PersonConst();
@@ -70,6 +76,7 @@ public class PersonConst {
             e.birthDate = this.birthDate;
             e.citizenship = this.citizenship;
             e.placeOfBirth = this.placeOfBirth;
+            e.bloodType = this.bloodType;
             return e;
         }
     }

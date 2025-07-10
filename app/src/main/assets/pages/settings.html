@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TeamMan — Settings</title>
     <style>
-        header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px;
-            background: #eee;
-        }
-        header > * {
-            user-select: none;
-        }
         main {
             padding: 10px;
         }
@@ -28,8 +18,8 @@
 <div id="header-container"></div>
 
 <main>
-    <button id="btn-db">База даних</button>
-    <button id="btn-users">Користувачі</button>
+    <button id="btn-db" data-testid="btn-go-to-db-pages">База даних</button>
+    <button id="btn-users" data-testid="btn-go-to-users">Користувачі</button>
 </main>
 
 <script src="/assets/js/strings.js"></script>
