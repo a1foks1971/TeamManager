@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeamMan — Settings</title>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: #eee;
+        }
+        header > * {
+            user-select: none;
+        }
+        main {
+            padding: 10px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body data-page="settings">
+
+<div id="header-container"></div>
+
+<main>
+    <button id="btn-db">База даних</button>
+    <button id="btn-users">Користувачі</button>
+</main>
+
+<script src="assets/js/strings.js"></script>
+<script src="assets/js/lang.js"></script>
+<script src="assets/js/load-header.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadHeader(); // загружаем хедер и после инициализируем кнопки и переключатель языка
+
+<!--      // Обработчик кнопки настроек — она есть в main и грузится сразу, так что можно повесить здесь:-->
+<!--      const settingsBtn = document.getElementById('btn-settings');-->
+<!--      if (settingsBtn) {-->
+<!--        settingsBtn.addEventListener('click', () => {-->
+<!--          window.location.href = "/pages/settings.html";-->
+<!--        });-->
+<!--      }-->
+    });
+</script>
+
+</body>
+</html>

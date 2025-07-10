@@ -25,22 +25,7 @@
 </head>
 <body data-page="home">
 
-<header>
-    <button disabled id="btn-back">
-        <img src="assets/img/arrow-left.svg" style="width:16px; height:16px;" />
-    </button>
-
-    <button disabled id="btn-home">
-        <img src="assets/img/home.svg" style="width:16px; height:16px;" />
-    </button>
-
-    <h3 id="page-title" style="margin-left: 10px;">TeamMan</h3>
-
-    <select id="lang-switcher" style="margin-left: auto;">
-        <option value="uk" selected>Укр</option>
-        <option value="us">Eng</option>
-    </select>
-</header>
+<div id="header-container"></div>
 
 <main>
     <button id="btn-settings">Налаштування</button>
@@ -49,13 +34,22 @@
 
 <script src="assets/js/strings.js"></script>
 <script src="assets/js/lang.js"></script>
-<script>
-    const settingsBtn = document.getElementById('btn-settings');
+<script src="assets/js/load-header.js"></script>
 
-   document.addEventListener('DOMContentLoaded', () => {
-       settingsBtn.addEventListener('click', () => window.location.href = "settings.html");
-   });
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadHeader(); // загружаем хедер и после инициализируем кнопки и переключатель языка
+
+      // Обработчик кнопки настроек — она есть в main и грузится сразу, так что можно повесить здесь:
+      const settingsBtn = document.getElementById('btn-settings');
+      if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+          window.location.href = "/pages/settings.html";
+        });
+      }
+    });
 </script>
+
 </body>
 </html>
 

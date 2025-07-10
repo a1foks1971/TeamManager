@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initLangSwitcher() {
   const langSwitcher = document.getElementById('lang-switcher');
-  let lang = 'uk';
+  if (!langSwitcher) return; // Если нет переключателя - ничего не делаем
 
+  let lang = 'uk';
   const page = document.body.dataset.page;
 
   function setLanguage(lang) {
@@ -25,4 +26,4 @@ document.addEventListener('DOMContentLoaded', () => {
     lang = e.target.value;
     setLanguage(lang);
   });
-});
+}
