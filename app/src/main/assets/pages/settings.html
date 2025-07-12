@@ -28,15 +28,14 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-      loadHeader(); // загружаем хедер и после инициализируем кнопки и переключатель языка
+      loadHeader();
 
-<!--      // Обработчик кнопки настроек — она есть в main и грузится сразу, так что можно повесить здесь:-->
-<!--      const settingsBtn = document.getElementById('btn-settings');-->
-<!--      if (settingsBtn) {-->
-<!--        settingsBtn.addEventListener('click', () => {-->
-<!--          window.location.href = "/pages/settings.html";-->
-<!--        });-->
-<!--      }-->
+      const settingsBtn = document.getElementById('btn-db');
+      if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+          window.location.href = "/pages/personConst.html";
+        });
+      }
     });
 </script>
 

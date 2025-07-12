@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeamMan — Персонал</title>
+    <style>
+        main {
+          padding: 16px;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 16px;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 6px;
+          text-align: left;
+        }
+        th {
+          background: #f0f0f0;
+        }
+        .top-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .top-bar h2 {
+          margin: 0;
+        }
+        .top-bar button {
+          padding: 6px 12px;
+        }
+    </style>
+</head>
+<body data-page="personConst">
+<div id="header-container"></div>
+
+<main>
+    <div class="top-bar">
+        <h2>Список працівників</h2>
+        <button id="btn-add-person">Додати</button>
+    </div>
+
+    <table id="person-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Прізвище</th>
+            <th>Ім’я</th>
+            <th>По батькові</th>
+            <th>Стать</th>
+            <th>Дата народження</th>
+            <th>Громадянство</th>
+            <th>Місце народження</th>
+            <th>Група крові</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        <!-- Данные будут подставлены сервером -->
+        </tbody>
+    </table>
+</main>
+
+<script src="/assets/js/load-header.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadHeader();
+
+      const addBtn = document.getElementById("btn-add-person");
+      if (addBtn) {
+        addBtn.addEventListener("click", () => {
+          window.location.href = "/pages/personConstAdd.html";
+        });
+      }
+    });
+</script>
+</body>
+</html>

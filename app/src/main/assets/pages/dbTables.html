@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>БД - Список таблиць</title>
+    <style>
+        main {
+            padding: 10px;
+        }
+        button {
+            cursor: pointer;
+            display: block;
+            margin: 5px 0;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body data-page="dbTables">
+
+<div id="header-container"></div>
+
+<main id="tables-container">
+    <!-- Кнопки появятся сюда динамически -->
+</main>
+
+<script src="/assets/js/strings.js"></script>
+<script src="/assets/js/lang.js"></script>
+<script src="/assets/js/load-header.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        await loadHeader();
+
+        const container = document.getElementById('tables-container');
+
+        try {
+            const response = await fetch('/api/tables');
+            if (!response.ok) throw new Error('Ошибка загрузки списка таблиц');
+
+            const tables = await response.json();
+
+            tables.forEach(table => {
+                const btn = document.createElement('button');
+                btn.textContent = table.displayName;
+                btn.setAttribute('data-table', table.name);
+                btn.setAttribute('data-testid', 'btn-table-' + table.name);
+
+                btn.addEventListener('click', () => {
+                    window.location.href = `/pages/table${capitalizeFirstLetter(table.name)}.html`;
+                });
+
+                container.appendChild(btn);
+            });
+        } catch (e) {
+            container.textContent = 'Не удалось загрузить список таблиц.';
+            console.error(e);
+        }
+    });
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+</script>
+
+</body>
+</html>

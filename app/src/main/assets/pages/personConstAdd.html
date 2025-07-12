@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeamMan — Додати людину</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        main {
+          padding: 16px;
+        }
+        label {
+          display: block;
+          margin-top: 12px;
+        }
+        input, select {
+          width: 100%;
+          padding: 6px;
+          margin-top: 4px;
+        }
+        button {
+          margin-top: 16px;
+          padding: 8px 16px;
+        }
+    </style>
+</head>
+<body data-page="personConstAdd">
+<div id="header-container"></div>
+
+<main>
+    <h2>Додати нового працівника</h2>
+    <form id="person-form">
+        <label>Прізвище:
+            <input type="text" name="lastName" value="" required />
+        </label>
+        <label>Ім’я:
+            <input type="text" name="firstName" value="" required />
+        </label>
+        <label>По батькові:
+            <input type="text" name="patronymic" value="" />
+        </label>
+        <label>Стать:
+            <select name="sex">
+                <option value="true" selected>Чоловік</option>
+                <option value="false">Жінка</option>
+            </select>
+        </label>
+        <label>Дата народження:
+            <input type="date" name="birthDate" value="2000-01-01" />
+        </label>
+        <label>Громадянство:
+            <input type="text" name="citizenship" value="Ukraine" />
+        </label>
+        <label>Місце народження:
+            <input type="text" name="placeOfBirth" value="Ukraine" />
+        </label>
+        <label>Група крові:
+            <input type="text" name="bloodType" value="O(1)" />
+        </label>
+
+        <button type="submit">Зберегти</button>
+    </form>
+</main>
+
+<script src="/assets/js/load-header.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadHeader();
+
+      const form = document.getElementById("person-form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        const response = await fetch("/add", {
+          method: "POST",
+          body: data
+        });
+
+        if (response.ok) {
+          alert("Дані успішно збережено!");
+          window.location.href = "/pages/personConst.html";
+        } else {
+          alert("Сталася помилка при збереженні.");
+        }
+      });
+    });
+</script>
+</body>
+</html>
